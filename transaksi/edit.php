@@ -1,8 +1,8 @@
 <?php
 include '../header.php';
 getTransaction();
-$distributors = getDistributor();
 updateTransaction();
+$distributors = getDistributor();
 ?>
 <body>
     <h2>Edit Produk</h2>

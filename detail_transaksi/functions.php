@@ -50,7 +50,7 @@ function getDetailTransaction()
         $pesan = '';
 
         if (!empty($id)) {
-            $sql = connect_db()->query("SELECT * FROM transaksi WHERE id = '$id'");
+            $sql = connect_db()->query("SELECT * FROM detail_transaksi WHERE id = '$id'");
 
             if ($sql == TRUE) {
                 return $sql->fetch_assoc();
@@ -90,18 +90,19 @@ function updateDetailTransaction()
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];
-        $id_pemasok = $_POST['id_pemasok'];
-        $tanggal = $_POST['tanggal'];
-        $total = $_POST['total'];
+        $id_transaksi = $_POST['id_transaksi'];
+        $id_produk = $_POST['id_produk'];
+        $jumlah = $_POST['jumlah'];
+        $harga = $_POST['harga'];
 
-        if (!empty($id) && !empty($id_pemasok) && !empty($tanggal) && !empty($total)) {
-            $sql = connect_db()->query("UPDATE transaksi SET id_pemasok = '$id_pemasok', tanggal = '$tanggal', total = '$total' WHERE id = '$id'");
+        if (!empty($id) && !empty($id_transaksi) && !empty($id_produk) && !empty($jumlah) && !empty($harga)) {
+            $sql = connect_db()->query("UPDATE detail_transaksi SET id_transaksi = '$id_transaksi', id_produk = '$id_produk', jumlah = '$jumlah', harga = '$harga' WHERE id = '$id'");
 
             if ($sql == TRUE) {
                 header('Location: index.php');
                 exit;
             } else {
-                header('Location: edit.php?pesan="Gagal mengupdate data transaksi"');
+                header('Location: edit.php?pesan="Gagal mengupdate data detail transaksi"');
                 exit;
             }
         }

@@ -23,7 +23,7 @@ deleteDetailTransaction();
                 <td><?php echo $detail_transaction['id_transaksi']; ?></td>
                 <td><?php echo $detail_transaction['id_produk']; ?></td>
                 <td><?php echo $detail_transaction['jumlah']; ?></td>
-                <td><?php echo $detail_transaction['harga']; ?></td>
+                <td>Rp<?php echo number_format($detail_transaction['harga']); ?></td>
                 <td>
                     <a href="edit.php?id=<?php echo $detail_transaction['id']; ?>">Edit</a> |
                     <a href="index.php?id=<?php echo $detail_transaction['id']; ?>" onclick="return confirm('Yakin ingin menghapus produk ini?')">Hapus</a> 
