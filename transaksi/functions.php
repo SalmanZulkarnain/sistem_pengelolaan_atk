@@ -11,7 +11,9 @@ function connect_db()
 
 function readAllTransaction()
 {
-    $sql = connect_db()->query("SELECT * FROM transaksi");
+    $sql = connect_db()->query("SELECT transaksi.*, pemasok.nama_pemasok 
+            FROM transaksi 
+            LEFT JOIN pemasok ON transaksi.id_pemasok = pemasok.id");
 
     $data = array();
     while ($row = $sql->fetch_assoc()) {

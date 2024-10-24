@@ -3,13 +3,22 @@ include '../header.php';
 deleteDetailTransaction();
 ?>
 <body>
+    <div class="navbar">
+    <ul>
+        <li><a href="../kategori/index.php">Kategori</a></li>
+            <li><a href="../produk/index.php">Produk</a></li>
+            <li><a href="../distributor/index.php">Pemasok</a></li>
+            <li><a href="../transaksi/index.php">Transaksi</a></li>
+        </ul>
+    </div>
+        
     <a href="tambah.php">Tambah Detail Transaksi</a>
     <table border=1 cellspacing=0 cellpadding=10>
         <thead>
             <tr>
                 <th>No.</th>
                 <th>ID Transaksi</th>
-                <th>ID Produk</th>
+                <th>Nama Produk</th>
                 <th>Jumlah</th>
                 <th>Harga</th>
                 <th>Aksi</th>
@@ -21,7 +30,7 @@ deleteDetailTransaction();
             <tr>
                 <td><?php echo $no; ?></td>
                 <td><?php echo $detail_transaction['id_transaksi']; ?></td>
-                <td><?php echo $detail_transaction['id_produk']; ?></td>
+                <td><?php echo $detail_transaction['nama_produk']; ?></td>
                 <td><?php echo $detail_transaction['jumlah']; ?></td>
                 <td>Rp<?php echo number_format($detail_transaction['harga']); ?></td>
                 <td>

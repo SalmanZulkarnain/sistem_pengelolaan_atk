@@ -11,7 +11,9 @@ function connect_db()
 
 function readAllProduct()
 {
-    $sql = connect_db()->query("SELECT * FROM produk");
+    $sql = connect_db()->query("SELECT produk.*, kategori.nama_kategori 
+            FROM produk 
+            LEFT JOIN kategori ON produk.id_kategori = kategori.id");
 
     $data = array();
     while ($row = $sql->fetch_assoc()) {

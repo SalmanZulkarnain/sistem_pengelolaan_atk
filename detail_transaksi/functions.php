@@ -11,7 +11,9 @@ function connect_db()
 
 function readAllDetailTransaction()
 {
-    $sql = connect_db()->query("SELECT * FROM detail_transaksi");
+    $sql = connect_db()->query("SELECT detail_transaksi.*, produk.nama_produk 
+            FROM detail_transaksi
+            LEFT JOIN produk ON detail_transaksi.id_produk = produk.id");
 
     $data = array();
     while ($row = $sql->fetch_assoc()) {

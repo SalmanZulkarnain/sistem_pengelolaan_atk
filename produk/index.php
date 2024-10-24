@@ -3,6 +3,14 @@ include '../header.php';
 deleteProduct();
 ?>
 <body>
+<div class="navbar">
+    <ul>
+        <li><a href="../kategori/index.php">Kategori</a></li>
+        <li><a href="../distributor/index.php">Pemasok</a></li>
+        <li><a href="../transaksi/index.php">Transaksi</a></li>
+        <li><a href="../detail_transaksi/index.php">Detail Transaksi</a></li>
+        </ul>
+    </div>
     <a href="tambah.php">Tambah Produk</a>
     <table border=1 cellspacing=0 cellpadding=10>
         <thead>
@@ -20,9 +28,9 @@ deleteProduct();
                 <?php $no = 1; foreach(readAllProduct() as $product) : ?>
             <tr>
                 <td><?php echo $no; ?></td>
-                <td><?php echo $product['id_kategori']; ?></td>
+                <td><?php echo $product['nama_kategori']; ?></td>
                 <td><?php echo $product['nama_produk']; ?></td>
-                <td><?php echo $product['harga']; ?></td>
+                <td>Rp<?php echo number_format($product['harga']); ?></td>
                 <td><?php echo $product['stok']; ?></td>
                 <td>
                     <a href="edit.php?id=<?php echo $product['id']; ?>">Edit</a> |

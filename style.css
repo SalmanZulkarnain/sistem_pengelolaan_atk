@@ -82,3 +82,14 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar {
+    display: inline-block;
+    margin-right: 20px;
+}
