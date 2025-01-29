@@ -88,7 +88,7 @@ function getTransaction(): array
     return $data;
 }
 
-function updateDetailTransaction()
+    function updateDetailTransaction()
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];

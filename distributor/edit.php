@@ -2,6 +2,26 @@
 include '../header.php';
 getDistributor();
 updateDistributor();
+function getDistributor()
+{
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $id = $_GET['id'];
+
+        $pesan = '';
+
+        if (!empty($id)) {
+            $sql = connect_db()->query("SELECT * FROM pemasok WHERE id = '$id'");
+
+            if ($sql == TRUE) {
+                return $sql->fetch_assoc();
+            } else {
+                $pesan = "Gagal mengambil data";
+            }
+
+        }
+        return $pesan;
+    }
+}
 ?>
 <body>
     <h2>Edit Pemasok</h2>
